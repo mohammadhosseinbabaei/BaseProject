@@ -1,0 +1,58 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/matchMatchRTLVertical">
+
+    <LinearLayout style="@style/matchMatchRTLVertical">
+
+        <LinearLayout
+            style="@style/matchWrapRTLVertical"
+            android:layout_marginBottom="20dp"
+            android:background="@color/md_blue_A400">
+
+            <TextView
+                android:id="@+id/textViewTitleOptionDialog"
+                style="@style/textView20White"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp"
+                android:textIsSelectable="false" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewHeaderOptionDialog"
+            style="@style/textView18Main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textIsSelectable="false" />
+
+
+        <LinearLayout
+            style="@style/matchWrapRTLHorizontal"
+            android:layout_marginTop="25dp">
+
+            <Button
+                android:id="@+id/buttonOption1OptionDialog"
+                style="@style/secondaryButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/buttonOption2OptionDialog"
+                style="@style/secondaryButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/buttonOption3OptionDialog"
+                style="@style/secondaryButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

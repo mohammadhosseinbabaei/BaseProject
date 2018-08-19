@@ -1,0 +1,201 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:typeface">serif</item>
+    </style>
+
+    <style name="mainButton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:background">@drawable/rounded_main</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="secondaryButton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/md_red_900</item>
+        <item name="android:background">@drawable/rounded_secondary</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="greyButton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/md_red_900</item>
+        <item name="android:background">@drawable/rounded_grey</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="lineVertical">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/md_black_1000</item>
+    </style>
+
+    <style name="lineHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/md_black_1000</item>
+    </style>
+
+    <style name="matchMatchRTLVertical">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layoutDirection">rtl</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="matchWrapRTLVertical">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layoutDirection">rtl</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="matchMatchRTLHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layoutDirection">rtl</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="matchWrapRTLHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layoutDirection">rtl</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="editText14GreyBlack">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/md_black_1000</item>
+        <item name="android:background">@color/md_grey_300</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView12Grey">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/md_grey_600</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView14Grey">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/md_grey_600</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView16Grey">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/md_grey_600</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView18Grey">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/md_grey_600</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView12Main">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/md_red_900</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView14Main">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/md_red_900</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView16Main">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/md_red_900</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView18Main">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/md_red_900</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textView12Secondary">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/md_blue_A400</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView14Secondary">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/md_blue_A400</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView16Secondary">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/md_blue_A400</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView18Secondary">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/md_blue_A400</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView12Black">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/md_black_1000</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView14Black">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/md_black_1000</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView16Black">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/md_black_1000</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView18Black">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/md_black_1000</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView20White">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="textView16White">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/md_white_1000</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+</resources>
