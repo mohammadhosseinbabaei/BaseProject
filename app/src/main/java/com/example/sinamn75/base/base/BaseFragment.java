@@ -1,6 +1,8 @@
 package com.example.sinamn75.base.base;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
@@ -20,7 +22,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.sinamn75.base.dialog.LoadingDialog;
-import com.example.sinamn75.base.utils.ImageSaverHelper;
+import com.example.sinamn75.base.utils.PicassoSaverHelper;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -133,13 +135,9 @@ public class BaseFragment extends Fragment {
         if (ifImageExist(existFileName)) {
             Picasso.get().load(Uri.fromFile(new File(existFileName))).into(imageView);
         } else {
-            Picasso.get().load(url).into(new ImageSaverHelper(fileName));
+            Picasso.get().load(url).into(new PicassoSaverHelper(fileName));
             Picasso.get().load(url).into(imageView);
         }
-    }
-
-    public void picassoWithResize(String url, ImageView imageView, int width, int height) {
-        Picasso.get().load(url).resize(width, height).into(imageView);
     }
 
     public void showKeyboard() {
@@ -157,5 +155,13 @@ public class BaseFragment extends Fragment {
 
     public boolean isEmpty(String text) {
         return !text.isEmpty();
+    }
+
+    public void intentBackStack(Activity currentActivity, Class targetActivity) {
+        startActivity(new Intent(currentActivity, targetActivity));
+    }
+
+    public void intent(Activity currentActivity, Class targetActivity) {
+        startActivity(new Intent(currentActivity, targetActivity).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
     }
 }

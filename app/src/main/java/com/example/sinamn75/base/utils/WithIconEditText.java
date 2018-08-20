@@ -111,4 +111,10 @@ public class WithIconEditText extends android.support.v7.widget.AppCompatEditTex
     public void setDrawableClickListener(DrawableClickListener listener) {
         this.clickListener = listener;
     }
+
+    public interface DrawableClickListener {
+        void onClick(DrawablePosition target);
+
+        enum DrawablePosition {TOP, BOTTOM, LEFT, RIGHT}
+    }
 }

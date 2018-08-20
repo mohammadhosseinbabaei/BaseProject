@@ -10,10 +10,10 @@ import com.squareup.picasso.Target;
 import java.io.File;
 import java.io.FileOutputStream;
 
-public class ImageSaverHelper implements Target {
+public class PicassoSaverHelper implements Target {
     private final String name;
 
-    public ImageSaverHelper(String name) {
+    public PicassoSaverHelper(String name) {
         this.name = name;
     }
 
@@ -24,9 +24,9 @@ public class ImageSaverHelper implements Target {
     @Override
     public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom arg1) {
         try {
-            File file = new File(Environment.getExternalStorageDirectory().getPath() + "/celewall/images/");
+            File file = new File(Environment.getExternalStorageDirectory().getPath() + "/directory/");
             file.mkdirs();
-            FileOutputStream fileOutputStream = new FileOutputStream(new File(Environment.getExternalStorageDirectory().getPath() + "/celewall/images/" + name));
+            FileOutputStream fileOutputStream = new FileOutputStream(new File(Environment.getExternalStorageDirectory().getPath() + "/directory/" + name));
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
             fileOutputStream.close();
         } catch (Exception e) {

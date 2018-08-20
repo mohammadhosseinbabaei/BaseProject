@@ -1,5 +1,8 @@
 package com.example.sinamn75.base.utils;
 
+/**
+ * A simple css for web view.
+ */
 public class WebViewStyle {
     private static WebViewStyle myInstance;
 

@@ -48,15 +48,14 @@ public abstract class Downloader extends BaseActivity {
         } else {
             DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
             context.registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-            toastNormal("در حال دانلود فایل");
+            toastNormal("downloading");
             DownloadManager.Request request = new DownloadManager.Request(downloadUri).setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI | DownloadManager.Request.NETWORK_MOBILE)
-                    .setAllowedOverRoaming(false).setTitle(" فایل ...")
-                    .setDescription(" در حال دانلود ")
+                    .setAllowedOverRoaming(false).setTitle("file...")
+                    .setDescription("downloading...")
                     .setVisibleInDownloadsUi(false)
                     .setDestinationInExternalPublicDir("Folder/", NameFile);
             Objects.requireNonNull(downloadManager).enqueue(request);
         }
     }
-
     public abstract void onAddresFile(File address);
 }

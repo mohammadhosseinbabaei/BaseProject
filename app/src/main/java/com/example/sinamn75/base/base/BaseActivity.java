@@ -1,7 +1,9 @@
 package com.example.sinamn75.base.base;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
@@ -85,5 +87,13 @@ public class BaseActivity extends AppCompatActivity {
 
     public boolean isEmpty(String text) {
         return !text.isEmpty();
+    }
+
+    public void intentBackStack(Activity currentActivity, Class targetActivity) {
+        startActivity(new Intent(currentActivity, targetActivity));
+    }
+
+    public void intent(Activity currentActivity, Class targetActivity) {
+        startActivity(new Intent(currentActivity, targetActivity).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
     }
 }
