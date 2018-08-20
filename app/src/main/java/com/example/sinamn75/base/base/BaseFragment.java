@@ -1,6 +1,8 @@
 package com.example.sinamn75.base.base;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -14,7 +16,6 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -29,6 +30,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.lang.reflect.Field;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -110,16 +112,20 @@ public class BaseFragment extends Fragment {
     }
 
 
-    public void transaction(int animationIn, int animationOut, int layout, Fragment fragment) {
-        assert getFragmentManager() != null;
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction().setCustomAnimations(animationIn, animationOut);
-        fragmentTransaction.replace(layout, fragment);
-        fragmentTransaction.commit();
+    public void transactionAdd(int animationIn, int animationOut, int layout, Fragment fragment) {
+        Objects.requireNonNull(getFragmentManager()).beginTransaction().setCustomAnimations(animationIn, animationOut).add(layout, fragment).commit();
+    }
+
+    public void transactionReplace(int animationIn, int animationOut, int layout, Fragment fragment) {
+        Objects.requireNonNull(getFragmentManager()).beginTransaction().setCustomAnimations(animationIn, animationOut).replace(layout, fragment).commit();
+    }
+
+    public void transactionRemove(Fragment fragment) {
+        Objects.requireNonNull(getFragmentManager()).beginTransaction().remove(fragment).commit();
     }
 
     public void transactionAddToBackStack(int layout, int animationIn, int animationOut, Fragment fragment, String tag) {
-        assert getFragmentManager() != null;
-        getFragmentManager().beginTransaction().setCustomAnimations(animationIn, animationOut).replace(layout, fragment).addToBackStack(tag).commit();
+        Objects.requireNonNull(getFragmentManager()).beginTransaction().setCustomAnimations(animationIn, animationOut).replace(layout, fragment).addToBackStack(tag).commit();
     }
 
     public boolean checkConnection() {
@@ -178,5 +184,10 @@ public class BaseFragment extends Fragment {
             cursor.close();
         }
         return filePath;
+    }
+
+    public void copyToClipboard(Context context, String text) {
+        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        if (clipboard != null) clipboard.setPrimaryClip(ClipData.newPlainText("Code", text));
     }
 }

@@ -1,6 +1,5 @@
 package com.example.sinamn75.base.dialog;
 
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -21,7 +20,6 @@ import java.util.Objects;
 
 public class InputDialog extends BaseDialog {
 
-    private ImageView imageViewHeaderInputDialog;
     private TextView textViewHeaderInputDialog;
     private TextView textViewDescriptionInputDialog;
     private EditText editTextInputDialog;
@@ -39,11 +37,6 @@ public class InputDialog extends BaseDialog {
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-    }
-
-    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Objects.requireNonNull(getDialog().getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
@@ -53,14 +46,7 @@ public class InputDialog extends BaseDialog {
         return view;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-
-    }
-
     private void initialView(View view) {
-        imageViewHeaderInputDialog = view.findViewById(R.id.imageViewHeaderInputDialog);
         textViewHeaderInputDialog = view.findViewById(R.id.textViewHeaderInputDialog);
         editTextInputDialog = view.findViewById(R.id.editTextInputDialog);
         imageViewInputDialog = view.findViewById(R.id.imageViewInputDialog);

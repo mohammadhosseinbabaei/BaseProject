@@ -2,6 +2,8 @@ package com.example.sinamn75.base.base;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -19,6 +21,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.lang.reflect.Field;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -28,8 +31,20 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity {
 
+    public void transactionAdd(int animationIn, int animationOut, int layout, Fragment fragment) {
+        Objects.requireNonNull(getSupportFragmentManager()).beginTransaction().setCustomAnimations(animationIn, animationOut).add(layout, fragment).commit();
+    }
+
     public void transactionReplace(int animationIn, int animationOut, int layout, Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().setCustomAnimations(animationIn, animationOut).replace(layout, fragment).commit();
+        Objects.requireNonNull(getSupportFragmentManager()).beginTransaction().setCustomAnimations(animationIn, animationOut).replace(layout, fragment).commit();
+    }
+
+    public void transactionRemove(Fragment fragment) {
+        Objects.requireNonNull(getSupportFragmentManager()).beginTransaction().remove(fragment).commit();
+    }
+
+    public void transactionAddToBackStack(int layout, int animationIn, int animationOut, Fragment fragment, String tag) {
+        Objects.requireNonNull(getSupportFragmentManager()).beginTransaction().setCustomAnimations(animationIn, animationOut).replace(layout, fragment).addToBackStack(tag).commit();
     }
 
     public void toastInfo(String text) {
@@ -111,5 +126,10 @@ public class BaseActivity extends AppCompatActivity {
             cursor.close();
         }
         return filePath;
+    }
+
+    public void copyToClipboard(Context context, String text) {
+        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        if (clipboard != null) clipboard.setPrimaryClip(ClipData.newPlainText("Code", text));
     }
 }

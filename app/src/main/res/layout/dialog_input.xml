@@ -11,16 +11,6 @@
             android:background="@color/md_blue_A400"
             android:gravity="center">
 
-            <ImageView
-                android:id="@+id/imageViewHeaderInputDialog"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/circle"
-                android:contentDescription="@string/todo"
-                android:padding="10dp"
-                android:tint="@color/md_white_1000" />
-
             <TextView
                 android:id="@+id/textViewHeaderInputDialog"
                 style="@style/textView20White"

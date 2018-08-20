@@ -1,6 +1,8 @@
 package com.example.sinamn75.base.base;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -22,6 +24,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.lang.reflect.Field;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 
@@ -130,5 +133,10 @@ public class BaseDialog extends DialogFragment {
             cursor.close();
         }
         return filePath;
+    }
+
+    public void copyToClipboard(Context context, String text) {
+        ClipboardManager clipboard = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+        if (clipboard != null) clipboard.setPrimaryClip(ClipData.newPlainText("Code", text));
     }
 }
