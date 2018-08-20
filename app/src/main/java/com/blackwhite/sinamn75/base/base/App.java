@@ -1,4 +1,4 @@
-package com.example.sinamn75.base.base;
+package com.blackwhite.sinamn75.base.base;
 
 import android.annotation.SuppressLint;
 import android.app.Application;

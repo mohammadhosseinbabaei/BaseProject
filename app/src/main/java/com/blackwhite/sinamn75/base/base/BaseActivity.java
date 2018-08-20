@@ -1,4 +1,4 @@
-package com.example.sinamn75.base.base;
+package com.blackwhite.sinamn75.base.base;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -21,7 +21,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.lang.reflect.Field;
-import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 

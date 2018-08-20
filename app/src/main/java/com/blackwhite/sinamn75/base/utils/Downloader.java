@@ -1,4 +1,4 @@
-package com.example.sinamn75.base.utils;
+package com.blackwhite.sinamn75.base.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -9,7 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 
-import com.example.sinamn75.base.base.BaseActivity;
+import com.blackwhite.sinamn75.base.base.BaseActivity;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
 
@@ -57,5 +57,6 @@ public abstract class Downloader extends BaseActivity {
             Objects.requireNonNull(downloadManager).enqueue(request);
         }
     }
+
     public abstract void onAddresFile(File address);
 }

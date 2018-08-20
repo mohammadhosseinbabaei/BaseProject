@@ -1,4 +1,4 @@
-package com.example.sinamn75.base.dialog;
+package com.blackwhite.sinamn75.base.dialog;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -8,8 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import com.example.sinamn75.base.R;
-import com.example.sinamn75.base.base.BaseDialog;
+
+import com.blackwhite.sinamn75.base.R;
+import com.blackwhite.sinamn75.base.base.BaseDialog;
 
 import java.util.Objects;
 

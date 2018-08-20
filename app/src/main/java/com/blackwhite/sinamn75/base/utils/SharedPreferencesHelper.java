@@ -1,9 +1,9 @@
-package com.example.sinamn75.base.utils;
+package com.blackwhite.sinamn75.base.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.sinamn75.base.base.App;
+import com.blackwhite.sinamn75.base.base.App;
 
 public class SharedPreferencesHelper {
 

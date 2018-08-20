@@ -1,4 +1,4 @@
-package com.example.sinamn75.base.utils;
+package com.blackwhite.sinamn75.base.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -15,19 +15,24 @@ public class WithIconEditText extends android.support.v7.widget.AppCompatEditTex
     private Drawable drawableTop;
     private Drawable drawableBottom;
     private DrawableClickListener clickListener;
+
     public WithIconEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
+
     public WithIconEditText(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
+
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
     }
+
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
     }
+
     @Override
     public void setCompoundDrawables(Drawable left, Drawable top, Drawable right, Drawable bottom) {
         if (left != null)
@@ -100,6 +105,7 @@ public class WithIconEditText extends android.support.v7.widget.AppCompatEditTex
         }
         return super.onTouchEvent(event);
     }
+
     @Override
     protected void finalize() throws Throwable {
         drawableRight = null;
@@ -108,6 +114,7 @@ public class WithIconEditText extends android.support.v7.widget.AppCompatEditTex
         drawableTop = null;
         super.finalize();
     }
+
     public void setDrawableClickListener(DrawableClickListener listener) {
         this.clickListener = listener;
     }

@@ -1,4 +1,4 @@
-package com.example.sinamn75.base.utils;
+package com.blackwhite.sinamn75.base.utils;
 
 public class PersianUtil {
     private static String replacePersianNumber(String textPost) {

@@ -1,4 +1,4 @@
-package com.example.sinamn75.base.webService;
+package com.blackwhite.sinamn75.base.webService;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

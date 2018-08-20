@@ -1,4 +1,4 @@
-package com.example.sinamn75.base.dialog;
+package com.blackwhite.sinamn75.base.dialog;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -13,8 +13,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.sinamn75.base.R;
-import com.example.sinamn75.base.base.BaseDialog;
+import com.blackwhite.sinamn75.base.R;
+import com.blackwhite.sinamn75.base.base.BaseDialog;
 
 import java.util.Objects;
 
@@ -26,6 +26,7 @@ public class InputDialog extends BaseDialog {
     private ImageView imageViewInputDialog;
     private Button buttonOkInputDialog;
     private Button buttonCancelDialog;
+
     public InputDialog() {
     }
 

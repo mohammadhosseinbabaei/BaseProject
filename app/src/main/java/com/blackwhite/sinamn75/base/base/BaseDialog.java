@@ -1,4 +1,4 @@
-package com.example.sinamn75.base.base;
+package com.blackwhite.sinamn75.base.base;
 
 import android.app.Activity;
 import android.content.ClipData;
@@ -8,43 +8,45 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.database.Cursor;
 import android.graphics.Typeface;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.sinamn75.base.dialog.LoadingDialog;
-import com.example.sinamn75.base.utils.PicassoSaverHelper;
+import com.blackwhite.sinamn75.base.dialog.LoadingDialog;
+import com.blackwhite.sinamn75.base.utils.PicassoSaverHelper;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.lang.reflect.Field;
-import java.util.Date;
 import java.util.Locale;
 import java.util.Objects;
 
 import es.dmoral.toasty.Toasty;
 
-public class BaseFragment extends Fragment {
+public class BaseDialog extends DialogFragment {
     private LoadingDialog loadingDialog;
 
-    public BaseFragment() {
+    public BaseDialog() {
+    }
+
+    public void showLoading() {
+        loadingDialog.show(Objects.requireNonNull(getFragmentManager()), "loading");
+    }
+
+    public void dismissDialog() {
+        loadingDialog.dismiss();
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        loadingDialog = LoadingDialog.newInstance();
         Locale locale = new Locale("fa");
         Locale.setDefault(locale);
         Configuration config = new Configuration();
@@ -57,20 +59,6 @@ public class BaseFragment extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void showLoading() {
-        loadingDialog.show(Objects.requireNonNull(getFragmentManager()), "loading");
-    }
-
-    public void dismissDialog() {
-        loadingDialog.dismiss();
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        loadingDialog = LoadingDialog.newInstance();
     }
 
     public void toastInfo(String text) {
@@ -93,14 +81,8 @@ public class BaseFragment extends Fragment {
         Toasty.error(Objects.requireNonNull(getContext()), text, Toast.LENGTH_SHORT).show();
     }
 
-    public void setLinearLayoutForRecyclerView(RecyclerView recyclerView, boolean nested) {
+    public void setLinearLayoutForRecyclerView(RecyclerView recyclerView) {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setNestedScrollingEnabled(nested);
-        recyclerView.setHasFixedSize(true);
-    }
-
-    public void setLinearLayoutForRecyclerViewHorizontal(RecyclerView recyclerView) {
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
     }
@@ -109,32 +91,6 @@ public class BaseFragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), spanCount));
         recyclerView.setHasFixedSize(true);
         recyclerView.setNestedScrollingEnabled(false);
-    }
-
-
-    public void transactionAdd(int animationIn, int animationOut, int layout, Fragment fragment) {
-        Objects.requireNonNull(getFragmentManager()).beginTransaction().setCustomAnimations(animationIn, animationOut).add(layout, fragment).commit();
-    }
-
-    public void transactionReplace(int animationIn, int animationOut, int layout, Fragment fragment) {
-        Objects.requireNonNull(getFragmentManager()).beginTransaction().setCustomAnimations(animationIn, animationOut).replace(layout, fragment).commit();
-    }
-
-    public void transactionRemove(Fragment fragment) {
-        Objects.requireNonNull(getFragmentManager()).beginTransaction().remove(fragment).commit();
-    }
-
-    public void transactionAddToBackStack(int layout, int animationIn, int animationOut, Fragment fragment, String tag) {
-        Objects.requireNonNull(getFragmentManager()).beginTransaction().setCustomAnimations(animationIn, animationOut).replace(layout, fragment).addToBackStack(tag).commit();
-    }
-
-    public boolean checkConnection() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) App.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        assert connectivityManager != null;
-        NetworkInfo info = connectivityManager.getActiveNetworkInfo();
-        if (info == null) return false;
-        NetworkInfo.State network = info.getState();
-        return (network == NetworkInfo.State.CONNECTED || network == NetworkInfo.State.CONNECTING);
     }
 
     public void picasso(String url, ImageView imageView) {
@@ -146,14 +102,6 @@ public class BaseFragment extends Fragment {
             Picasso.get().load(url).into(new PicassoSaverHelper(fileName));
             Picasso.get().load(url).into(imageView);
         }
-    }
-
-    public void showKeyboard() {
-        Objects.requireNonNull((InputMethodManager) Objects.requireNonNull(getContext()).getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-    }
-
-    public void hideKeyboard(EditText editText) {
-        Objects.requireNonNull((InputMethodManager) Objects.requireNonNull(getContext()).getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(editText.getWindowToken(), 0);
     }
 
     public boolean ifImageExist(String text) {
