@@ -1,12 +1,7 @@
 package com.example.sinamn75.base.utils;
 
-import java.text.NumberFormat;
-import java.util.Locale;
-
 public class PersianUtil {
-    private static NumberFormat numberFormat = NumberFormat.getInstance(new Locale("ar", "EG"));
-
-    private static String replacepersianNumber(String textPost) {
+    private static String replacePersianNumber(String textPost) {
         textPost = textPost.replace("1", "۱");
         textPost = textPost.replace("2", "۲");
         textPost = textPost.replace("3", "۳");
@@ -20,7 +15,7 @@ public class PersianUtil {
         return textPost;
     }
 
-    private static String replaceenglishNumber(String textPost) {
+    private static String replaceEnglishNumber(String textPost) {
         textPost = textPost.replace("۱", "1");
         textPost = textPost.replace("۲", "2");
         textPost = textPost.replace("۳", "3");
@@ -58,18 +53,18 @@ public class PersianUtil {
     }
 
     private static String getMonthName(String textPost) {
-        textPost = textPost.replace("۰۱", "فروردین");
-        textPost = textPost.replace("۰۲", "اردیبهشت");
-        textPost = textPost.replace("۰۳", "خرداد");
-        textPost = textPost.replace("۰۴", "تیر");
-        textPost = textPost.replace("۰۵", "مرداد");
-        textPost = textPost.replace("۰۶", "شهریور");
-        textPost = textPost.replace("۰۷", "مهر");
-        textPost = textPost.replace("۰۸", "آبان");
-        textPost = textPost.replace("۰۹", "آذر");
-        textPost = textPost.replace("۱۰", "دی");
-        textPost = textPost.replace("۱۱", "بهمن");
-        textPost = textPost.replace("۱۲", "اسفند");
+        textPost = textPost.replace("01", "فروردین");
+        textPost = textPost.replace("02", "اردیبهشت");
+        textPost = textPost.replace("03", "خرداد");
+        textPost = textPost.replace("04", "تیر");
+        textPost = textPost.replace("05", "مرداد");
+        textPost = textPost.replace("06", "شهریور");
+        textPost = textPost.replace("07", "مهر");
+        textPost = textPost.replace("08", "آبان");
+        textPost = textPost.replace("09", "آذر");
+        textPost = textPost.replace("10", "دی");
+        textPost = textPost.replace("11", "بهمن");
+        textPost = textPost.replace("12", "اسفند");
         return textPost;
     }
 
@@ -80,7 +75,7 @@ public class PersianUtil {
      * @return Number in persian.
      */
     public static String getNumberPersian(String number) {
-        return replacepersianNumber(number);
+        return replacePersianNumber(number);
     }
 
     /**
@@ -90,7 +85,7 @@ public class PersianUtil {
      * @return Number in english.
      */
     public static String getNumberEnglish(String number) {
-        return replaceenglishNumber(String.valueOf(number));
+        return replaceEnglishNumber(String.valueOf(number));
     }
 
     /**
